@@ -1,0 +1,19 @@
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Chart from "./pages/chart";
+import LogIn from "./pages/login";
+
+export default function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path='chart'>
+          <Chart />
+        </Route>
+        <Route path='chart'>
+          <LogIn />
+        </Route>
+      </Switch>
+    </Router>
+  );
+}
