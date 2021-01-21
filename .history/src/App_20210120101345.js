@@ -1,15 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Layout, Menu } from "antd";
-const { Sider } = Layout;
-const { SubMenu } = Menu;
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import routes from "./router";
+import 'antd/dist/antd.css';
+import RouteWithSubRoutes from "./routeWithSubRoutes";
+import SideBar from "./components/sidebar";
+import { Layout, Breadcrumb } from "antd";
+const { Header, Content } = Layout;
 
 const menu = [
   {
     name: "生产管理",
     link: "/production",
     children: [
-      { name: "计划工单", link: "/production/planning" },
+      { name: "生产管理", link: "/production/management" },
       { name: "生产任务", link: "/production/task" },
       { name: "生产看板", link: "/production/panel" },
       { name: "生产报表", link: "/production/sheet" },
@@ -76,59 +78,26 @@ const menu = [
   },
 ];
 
-export default class SideBar extends React.Component {
-  state = {
-    collapsed: false,
-  };
-
-  onCollapse = (collapsed) => {
-    console.log(collapsed);
-    this.setState({ collapsed });
-  };
-  render() {
-    const { collapsed } = this.state;
-    return (
-      <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
-        <div className='logo' />
-        <Menu theme='dark' defaultSelectedKeys={["1"]} mode='inline'>
-          {menu.map((outerItem, index) => {
-            if (!outerItem.children) {
-              //  return <SubMenuWithLink {...outerItem} key={`outer${index}`} />;
-              let { link, name } = outerItem;
-              return (
-                <Menu.Item key={`outer${index}`}>
-                  <Link to={link}>{name}</Link>
-                </Menu.Item>
-              );
-            } else {
-              return (
-                <SubMenu key={`outer${index}`} title={outerItem.name}>
-                  {outerItem.children.map((innerItem, i) => {
-                    let { link, name } = innerItem;
-                    return (
-                      <Menu.Item key={`${index}inner${i}}`}>
-                        <Link to={link}>{name}</Link>
-                      </Menu.Item>
-                    );
-                  })}
-                </SubMenu>
-              );
-            }
-          })}
-        </Menu>
-      </Sider>
-    );
-  }
-}
-
-function SubMenuWithLink(props) {
-  console.log("props", props);
-
-  let { name, link } = props;
-  console.log(name, link);
+export default function RouteConfig() {
   return (
-    <Menu.Item>
-      <Link to={link}>{name}</Link>
-    </Menu.Item>
+    <Router>
+      <Layout style={{ minHeight: "100vh" }}>
+        <SideBar />
+        <Layout className='site-layout'>
+          <Header className='site-layout-background' style={{ padding: 0 }} />
+          <Content>
+            <Breadcrumb style={{ margin: "16px 0" }}>
+              <Breadcrumb.Item>
+                <Switch>
+                  {routes.map((route, i) => (
+                    <RouteWithSubRoutes key={i} {...route} />
+                  ))}
+                </Switch>
+              </Breadcrumb.Item>
+            </Breadcrumb>
+          </Content>
+        </Layout>
+      </Layout>
+    </Router>
   );
 }

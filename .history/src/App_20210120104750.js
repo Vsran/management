@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Link } from "react-router-dom";
 import routes from "./router";
 import "antd/dist/antd.css";
 import RouteWithSubRoutes from "./routeWithSubRoutes";
 //import SideBar from "./components/sidebar";
 //import { Layout, Menu } from "antd";
-import LogIn from './pages/login';
 import { Layout, Breadcrumb, Menu } from "antd";
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 const { Header, Content } = Layout;
+
 const menu = [
   {
     name: "生产管理",
@@ -86,17 +86,10 @@ export default function App() {
 
   const [collapsed, setCollapsed] = useState(false);
 
+
     return (
       <Router>
-        <Switch>
-          <Route path='/register'>
-            <div>register</div>
-          </Route>
-          <Route path='/login'>
-            <LogIn/>
-          </Route>
-          <Route path='/main'>
-          <Layout style={{ minHeight: "100vh" }}>
+        <Layout style={{ minHeight: "100vh" }}>
           <Sider collapsible collapsed={collapsed} onCollapse={() => setCollapsed(collapsed)}>
             <div className='logo' />
             <Menu theme='dark' defaultSelectedKeys={["1"]} mode='inline'>
@@ -141,8 +134,6 @@ export default function App() {
             </Content>
           </Layout>
         </Layout>
-          </Route>
-        </Switch>
       </Router>
     );
 }

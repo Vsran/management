@@ -93,7 +93,7 @@ export default function App() {
             <div>register</div>
           </Route>
           <Route path='/login'>
-            <LogIn/>
+            <div>login</div>
           </Route>
           <Route path='/main'>
           <Layout style={{ minHeight: "100vh" }}>

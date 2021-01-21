@@ -9,7 +9,7 @@ const menu = [
     name: "生产管理",
     link: "/production",
     children: [
-      { name: "计划工单", link: "/production/planning" },
+      { name: "生产管理", link: "/production/management" },
       { name: "生产任务", link: "/production/task" },
       { name: "生产看板", link: "/production/panel" },
       { name: "生产报表", link: "/production/sheet" },

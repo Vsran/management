@@ -1,6 +1,6 @@
 import React from "react";
-const routes = [
 
+const routes = [
   //{
   //  path: '/production',
   //  component: () => <div>生产管理</div>,
@@ -26,7 +26,7 @@ const routes = [
         component: () => <div>销售订单</div>
       },
       {
-        path: '/production/history',
+        path: 'production/history',
         component: () => <div>追溯</div>
       },
   //  ]

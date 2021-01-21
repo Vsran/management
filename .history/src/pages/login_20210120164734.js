@@ -11,7 +11,7 @@ class LogIn extends Component {
   }
   handleChange = (type, event) => {
     let value = event.target.value.trim();
-    //if (!value) return;
+    if (!value) return;
 
     switch (type) {
       case "username":
@@ -49,7 +49,7 @@ class LogIn extends Component {
     //修改用户状态
     console.log('this.props', this.props);
     let { type } = this.props;
-    store.dispatch(this.props);
+    store.dispatch(type);
   }
   render() {
     let { username, password } = this.state;
@@ -69,8 +69,11 @@ const mapStateToPros = (state) => {
   let { logged } = state;
   return { logged };
 };
-const logIn = () => ({
+const logIn = param => ({
   type: 'logIn'
 })
+const mapDispatchToProps = () => {
+
+}
 
 export default connect(null, logIn)(LogIn);

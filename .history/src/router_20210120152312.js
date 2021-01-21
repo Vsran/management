@@ -1,6 +1,15 @@
 import React from "react";
-const routes = [
+import LogIn from './pages/login';
 
+const routes = [
+  {
+    path: '／register',
+    component: () => <div>登录</div>
+  },
+  {
+    path: 'login',
+    component: <LogIn/>
+  },
   //{
   //  path: '/production',
   //  component: () => <div>生产管理</div>,

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { store } from '../redux/store';
 class LogIn extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +10,7 @@ class LogIn extends Component {
   }
   handleChange = (type, event) => {
     let value = event.target.value.trim();
-    //if (!value) return;
+    if (!value) return;
 
     switch (type) {
       case "username":
@@ -48,8 +47,6 @@ class LogIn extends Component {
 
     //修改用户状态
     console.log('this.props', this.props);
-    let { type } = this.props;
-    store.dispatch(this.props);
   }
   render() {
     let { username, password } = this.state;
@@ -69,8 +66,11 @@ const mapStateToPros = (state) => {
   let { logged } = state;
   return { logged };
 };
-const logIn = () => ({
+const logIn = param => ({
   type: 'logIn'
 })
+const mapDispatchToProps = () => {
+
+}
 
 export default connect(null, logIn)(LogIn);

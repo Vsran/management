@@ -1,6 +1,6 @@
 import React from "react";
-const routes = [
 
+const routes = [
   //{
   //  path: '/production',
   //  component: () => <div>生产管理</div>,

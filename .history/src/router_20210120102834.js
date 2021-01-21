@@ -1,6 +1,6 @@
 import React from "react";
-const routes = [
 
+const routes = [
   //{
   //  path: '/production',
   //  component: () => <div>生产管理</div>,
@@ -26,15 +26,15 @@ const routes = [
         component: () => <div>销售订单</div>
       },
       {
-        path: '/production/history',
+        path: 'production/history',
         component: () => <div>追溯</div>
       },
   //  ]
   //},
-  //{
-  //  path: '/material',
-  //  component: () => <div>物料管理</div>,
-  //  routes: [
+  {
+    path: '/material',
+    component: () => <div>物料管理</div>,
+    routes: [
       {
         path: '/material/request',
         component: () => <div>物料请求</div>
@@ -58,13 +58,13 @@ const routes = [
       {
         path: '/material/sheet',
         component: () => <div>物料报表</div>
-      },
-  //  ]
-  //},
-  //{
-  //  path: '/quality',
-  //  component: () => <div>质量管理</div>,
-  //  routes: [
+      }
+    ]
+  },
+  {
+    path: '/quality',
+    component: () => <div>质量管理</div>,
+    routes: [
       {
         path: '/quality/task',
         component: () => <div>质检任务</div>
@@ -76,13 +76,13 @@ const routes = [
       {
         path: '/quality/sheet',
         component: () => <div>质检报表</div>
-      },
-  //  ]
-  //},
-  //{
-  //  path: '/distribution',
-  //  component: () => <div>物流管理</div>,
-  //  routes: [
+      }
+    ]
+  },
+  {
+    path: '/distribution',
+    component: () => <div>物流管理</div>,
+    routes: [
       {
         path: '/distribution/search',
         component: <div>物流查询</div>
@@ -90,13 +90,13 @@ const routes = [
       {
         path: '/distribution/record',
         component: <div>记录查询</div>
-      },
-  //  ]
-  //},
-  //{
-  //  path: '/equipment',
-  //  component: () => <div>设备维护</div>,
-  //  routes: [
+      }
+    ]
+  },
+  {
+    path: '/equipment',
+    component: () => <div>设备维护</div>,
+    routes: [
       {
         path: '/equipment/state',
         component: () => <div>设备实况</div>
@@ -120,9 +120,9 @@ const routes = [
       {
         path: '/equipment/sheet',
         component: () => <div>设备报表</div>
-      },
-  //  ]
-  //},
+      }
+    ]
+  },
   {
     path: '/engine',
     component: () => <div>知识引擎</div>

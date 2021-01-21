@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { store } from '../redux/store';
 class LogIn extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +10,7 @@ class LogIn extends Component {
   }
   handleChange = (type, event) => {
     let value = event.target.value.trim();
-    //if (!value) return;
+    if (!value) return;
 
     switch (type) {
       case "username":
@@ -47,16 +46,13 @@ class LogIn extends Component {
     localStorage.setItem('password', password);
 
     //修改用户状态
-    console.log('this.props', this.props);
-    let { type } = this.props;
-    store.dispatch(this.props);
   }
   render() {
     let { username, password } = this.state;
 
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <input type='text' placeholder='用户名' onChange={(event) => {this.handleChange('username', event)}} value={username}/>
           <input type='password' placeholder='密码' onChange={(event) => {this.handleChange('password', event)}} value={password}/>
           <button>登录</button>
@@ -69,8 +65,5 @@ const mapStateToPros = (state) => {
   let { logged } = state;
   return { logged };
 };
-const logIn = () => ({
-  type: 'logIn'
-})
 
-export default connect(null, logIn)(LogIn);
+export default connect(mapStateToPros)(LogIn);

@@ -1,21 +1,21 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Link } from "react-router-dom";
 import routes from "./router";
 import "antd/dist/antd.css";
 import RouteWithSubRoutes from "./routeWithSubRoutes";
 //import SideBar from "./components/sidebar";
 //import { Layout, Menu } from "antd";
-import LogIn from './pages/login';
 import { Layout, Breadcrumb, Menu } from "antd";
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 const { Header, Content } = Layout;
+
 const menu = [
   {
     name: "生产管理",
     link: "/production",
     children: [
-      { name: "计划工单", link: "/production/planning" },
+      { name: "计划工单", link: "/production/management" },
       { name: "生产任务", link: "/production/task" },
       { name: "生产看板", link: "/production/panel" },
       { name: "生产报表", link: "/production/sheet" },
@@ -82,22 +82,22 @@ const menu = [
   },
 ];
 
-export default function App() {
+export default class App extends React.Component {
+  state = {
+    collapsed: false,
+  };
 
-  const [collapsed, setCollapsed] = useState(false);
+  onCollapse = (collapsed) => {
+    console.log(collapsed);
+    this.setState({ collapsed });
+  };
+  render() {
+    const { collapsed } = this.state;
 
     return (
       <Router>
-        <Switch>
-          <Route path='/register'>
-            <div>register</div>
-          </Route>
-          <Route path='/login'>
-            <LogIn/>
-          </Route>
-          <Route path='/main'>
-          <Layout style={{ minHeight: "100vh" }}>
-          <Sider collapsible collapsed={collapsed} onCollapse={() => setCollapsed(collapsed)}>
+        <Layout style={{ minHeight: "100vh" }}>
+          <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
             <div className='logo' />
             <Menu theme='dark' defaultSelectedKeys={["1"]} mode='inline'>
               {menu.map((outerItem, index) => {
@@ -141,8 +141,7 @@ export default function App() {
             </Content>
           </Layout>
         </Layout>
-          </Route>
-        </Switch>
       </Router>
     );
+  }
 }

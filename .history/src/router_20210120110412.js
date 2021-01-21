@@ -1,6 +1,10 @@
 import React from "react";
-const routes = [
 
+const routes = [
+  {
+    path: '／register',
+    component: () => <div>登录</div>
+  },
   //{
   //  path: '/production',
   //  component: () => <div>生产管理</div>,

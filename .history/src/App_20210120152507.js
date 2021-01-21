@@ -90,10 +90,10 @@ export default function App() {
       <Router>
         <Switch>
           <Route path='/register'>
-            <div>register</div>
+            <LogIn/>
           </Route>
           <Route path='/login'>
-            <LogIn/>
+            <div>login</div>
           </Route>
           <Route path='/main'>
           <Layout style={{ minHeight: "100vh" }}>

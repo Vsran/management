@@ -1,8 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Layout, Menu } from "antd";
+import { BrowserRouter as Router, Switch, Link } from "react-router-dom";
+import routes from "./router";
+import "antd/dist/antd.css";
+import RouteWithSubRoutes from "./routeWithSubRoutes";
+//import SideBar from "./components/sidebar";
+//import { Layout, Menu } from "antd";
+import { Layout, Breadcrumb, Menu } from "antd";
 const { Sider } = Layout;
 const { SubMenu } = Menu;
+const { Header, Content } = Layout;
 
 const menu = [
   {
@@ -76,7 +82,7 @@ const menu = [
   },
 ];
 
-export default class SideBar extends React.Component {
+export default class App extends React.Component {
   state = {
     collapsed: false,
   };
@@ -87,48 +93,55 @@ export default class SideBar extends React.Component {
   };
   render() {
     const { collapsed } = this.state;
+
     return (
-      <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
-        <div className='logo' />
-        <Menu theme='dark' defaultSelectedKeys={["1"]} mode='inline'>
-          {menu.map((outerItem, index) => {
-            if (!outerItem.children) {
-              //  return <SubMenuWithLink {...outerItem} key={`outer${index}`} />;
-              let { link, name } = outerItem;
-              return (
-                <Menu.Item key={`outer${index}`}>
-                  <Link to={link}>{name}</Link>
-                </Menu.Item>
-              );
-            } else {
-              return (
-                <SubMenu key={`outer${index}`} title={outerItem.name}>
-                  {outerItem.children.map((innerItem, i) => {
-                    let { link, name } = innerItem;
-                    return (
-                      <Menu.Item key={`${index}inner${i}}`}>
-                        <Link to={link}>{name}</Link>
-                      </Menu.Item>
-                    );
-                  })}
-                </SubMenu>
-              );
-            }
-          })}
-        </Menu>
-      </Sider>
+      <Router>
+        <Layout style={{ minHeight: "100vh" }}>
+          <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
+            <div className='logo' />
+            <Menu theme='dark' defaultSelectedKeys={["1"]} mode='inline'>
+              {menu.map((outerItem, index) => {
+                if (!outerItem.children) {
+                  //  return <SubMenuWithLink {...outerItem} key={`outer${index}`} />;
+                  let { link, name } = outerItem;
+                  return (
+                    <Menu.Item key={`outer${index}`}>
+                      <Link to={link}>{name}</Link>
+                    </Menu.Item>
+                  );
+                } else {
+                  return (
+                    <SubMenu key={`outer${index}`} title={outerItem.name}>
+                      {outerItem.children.map((innerItem, i) => {
+                        let { link, name } = innerItem;
+                        return (
+                          <Menu.Item key={`${index}inner${i}}`}>
+                            <Link to={link}>{name}</Link>
+                          </Menu.Item>
+                        );
+                      })}
+                    </SubMenu>
+                  );
+                }
+              })}
+            </Menu>
+          </Sider>
+          <Layout className='site-layout'>
+            <Header className='site-layout-background' style={{ padding: 0 }} />
+            <Content>
+              <Breadcrumb style={{ margin: "16px 0" }}>
+                <Breadcrumb.Item>
+                  <Switch>
+                    {routes.map((route, i) => (
+                      <RouteWithSubRoutes key={i} {...route} />
+                    ))}
+                  </Switch>
+                </Breadcrumb.Item>
+              </Breadcrumb>
+            </Content>
+          </Layout>
+        </Layout>
+      </Router>
     );
   }
-}
-
-function SubMenuWithLink(props) {
-  console.log("props", props);
-
-  let { name, link } = props;
-  console.log(name, link);
-  return (
-    <Menu.Item>
-      <Link to={link}>{name}</Link>
-    </Menu.Item>
-  );
 }

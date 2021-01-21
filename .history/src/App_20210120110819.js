@@ -5,11 +5,11 @@ import "antd/dist/antd.css";
 import RouteWithSubRoutes from "./routeWithSubRoutes";
 //import SideBar from "./components/sidebar";
 //import { Layout, Menu } from "antd";
-import LogIn from './pages/login';
 import { Layout, Breadcrumb, Menu } from "antd";
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 const { Header, Content } = Layout;
+
 const menu = [
   {
     name: "生产管理",
@@ -91,9 +91,6 @@ export default function App() {
         <Switch>
           <Route path='/register'>
             <div>register</div>
-          </Route>
-          <Route path='/login'>
-            <LogIn/>
           </Route>
           <Route path='/main'>
           <Layout style={{ minHeight: "100vh" }}>

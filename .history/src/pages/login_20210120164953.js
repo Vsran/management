@@ -72,5 +72,8 @@ const mapStateToPros = (state) => {
 const logIn = () => ({
   type: 'logIn'
 })
+const mapDispatchToProps = () => {
+
+}
 
 export default connect(null, logIn)(LogIn);
