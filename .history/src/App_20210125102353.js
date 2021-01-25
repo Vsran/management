@@ -5,7 +5,7 @@ import "antd/dist/antd.css";
 import RouteWithSubRoutes from "./routeWithSubRoutes";
 //import SideBar from "./components/sidebar";
 //import { Layout, Menu } from "antd";
-import LogIn from "./pages/login";
+import LogIn from "./pages/login/login";
 import { Layout, Breadcrumb, Menu } from "antd";
 const { Sider } = Layout;
 const { SubMenu } = Menu;

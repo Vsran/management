@@ -5,7 +5,7 @@ import "antd/dist/antd.css";
 import RouteWithSubRoutes from "./routeWithSubRoutes";
 //import SideBar from "./components/sidebar";
 //import { Layout, Menu } from "antd";
-import LogIn from "./pages/login";
+import LogIn from './pages/login';
 import { Layout, Breadcrumb, Menu } from "antd";
 const { Sider } = Layout;
 const { SubMenu } = Menu;
@@ -83,75 +83,68 @@ const menu = [
 ];
 
 export default function App() {
+
   const [collapsed, setCollapsed] = useState(false);
 
-  return (
-    <Router>
-      <Switch>
-        <Route path='/register'>
-          <div>register</div>
-        </Route>
-        <Route path='/login'>
-          <LogIn />
-        </Route>
-        <Route path='/main'>
+    return (
+      <Router>
+        <Switch>
+          <Route path='/register'>
+            <div>register</div>
+          </Route>
+          <Route path='/login'>
+            <LogIn/>
+          </Route>
+          <Route path='/main'>
           <Layout style={{ minHeight: "100vh" }}>
-            <Sider
-              collapsible
-              collapsed={collapsed}
-              onCollapse={() => setCollapsed(collapsed)}
-            >
-              <div className='logo' />
-              <Menu theme='dark' defaultSelectedKeys={["1"]} mode='inline'>
-                {menu.map((outerItem, index) => {
-                  if (!outerItem.children) {
-                    //  return <SubMenuWithLink {...outerItem} key={`outer${index}`} />;
-                    let { link, name } = outerItem;
-                    return (
-                      <Menu.Item key={`outer${index}`}>
-                        <Link to={link}>{name}</Link>
-                      </Menu.Item>
-                    );
-                  } else {
-                    return (
-                      <SubMenu key={`outer${index}`} title={outerItem.name}>
-                        {outerItem.children.map((innerItem, i) => {
-                          let { link, name } = innerItem;
-                          return (
-                            <Menu.Item key={`${index}inner${i}}`}>
-                              <Link to={link}>{name}</Link>
-                            </Menu.Item>
-                          );
-                        })}
-                      </SubMenu>
-                    );
-                  }
-                })}
-              </Menu>
-            </Sider>
-            <Layout className='site-layout'>
-              <Header
-                className='site-layout-background'
-                style={{ padding: 0 }}
-              />
-              <Content>
-                <Breadcrumb style={{ margin: "16px 0" }}>
-                  <Breadcrumb.Item>
-                    <Switch>
-                      {routes.map((route, i) => (
-                        <RouteWithSubRoutes key={i} {...route} />
-                      ))}
-                    </Switch>
-                  </Breadcrumb.Item>
-                </Breadcrumb>
-              </Content>
-            </Layout>
+          <Sider collapsible collapsed={collapsed} onCollapse={() => setCollapsed(collapsed)}>
+            <div className='logo' />
+            <Menu theme='dark' defaultSelectedKeys={["1"]} mode='inline'>
+              {menu.map((outerItem, index) => {
+                if (!outerItem.children) {
+                  //  return <SubMenuWithLink {...outerItem} key={`outer${index}`} />;
+                  let { link, name } = outerItem;
+                  return (
+                    <Menu.Item key={`outer${index}`}>
+                      <Link to={link}>{name}</Link>
+                    </Menu.Item>
+                  );
+                } else {
+                  return (
+                    <SubMenu key={`outer${index}`} title={outerItem.name}>
+                      {outerItem.children.map((innerItem, i) => {
+                        let { link, name } = innerItem;
+                        return (
+                          <Menu.Item key={`${index}inner${i}}`}>
+                            <Link to={link}>{name}</Link>
+                          </Menu.Item>
+                        );
+                      })}
+                    </SubMenu>
+                  );
+                }
+              })}
+            </Menu>
+          </Sider>
+          <Layout className='site-layout'>
+            <Header className='site-layout-background' style={{ padding: 0 }} />
+            <Content>
+              <Breadcrumb style={{ margin: "16px 0" }}>
+                <Breadcrumb.Item>
+                  <Switch>
+                    {routes.map((route, i) => (
+                      <RouteWithSubRoutes key={i} {...route} />
+                    ))}
+                  </Switch>
+                </Breadcrumb.Item>
+              </Breadcrumb>
+            </Content>
           </Layout>
-        </Route>
-      </Switch>
-    </Router>
-  );
+        </Layout>
+          </Route>
+        </Switch>
+      </Router>
+    );
 }
 
-console.log("history", window.history.pushState);
-console.log("hash", window.location.hash);
+console.log('history', window.history.pushState);
