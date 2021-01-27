@@ -7,25 +7,10 @@ import LogIn from "./pages/login";
 import Register from "./pages/register";
 
 import "antd/dist/antd.css";
-import { renderRoute } from 'react-router-config';
 
 function Authorized() {
 
 }
-const routes = [
-  {
-    component: () => <div>Root</div>,
-    routes: [
-      {
-        path: '/',
-        label: '首页',
-        exact: true,
-        component: () => <div>home</div>
-      },
-
-    ]
-  }
-]
 
 export default function App() {
   return (

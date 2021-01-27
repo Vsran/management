@@ -26,7 +26,7 @@ function LogIn(props) {
   const history = useHistory();
 
   let updateRouter = () => {
-    history.push("/main");
+    history.push("/register");
   };
 
   let onFinish = (values) => {
@@ -41,7 +41,7 @@ function LogIn(props) {
   };
 
   return (
-    <div>
+    <div className='login'>
       <Form
         {...layout}
         name='basic'
@@ -90,6 +90,10 @@ function LogIn(props) {
               visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
             }
           />
+        </Form.Item>
+
+        <Form.Item {...tailLayout} name='remember' valuePropName='checked'>
+          <Checkbox>记住密码</Checkbox>
         </Form.Item>
 
         <Form.Item {...tailLayout}>

@@ -85,11 +85,11 @@ const routes = [
   //  routes: [
       {
         path: '/distribution/search',
-        component: () => <div>物流查询</div>
+        component: <div>物流查询</div>
       },
       {
         path: '/distribution/record',
-        component: () => <div>记录查询</div>
+        component: <div>记录查询</div>
       },
   //  ]
   //},

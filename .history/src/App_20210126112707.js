@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,27 +8,9 @@ import LogIn from "./pages/login";
 import Register from "./pages/register";
 
 import "antd/dist/antd.css";
-import { renderRoute } from 'react-router-config';
-
-function Authorized() {
-
-}
-const routes = [
-  {
-    component: () => <div>Root</div>,
-    routes: [
-      {
-        path: '/',
-        label: '首页',
-        exact: true,
-        component: () => <div>home</div>
-      },
-
-    ]
-  }
-]
 
 export default function App() {
+
   return (
     <Router>
       <Switch>
@@ -49,3 +32,6 @@ export default function App() {
     </Router>
   );
 }
+
+console.log("history", window.history.pushState);
+console.log("hash", window.location.hash);
