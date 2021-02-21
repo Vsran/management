@@ -1,0 +1,20 @@
+<svg width="1024" height="330"
+  xmlns="http://www.w3.org/2000/svg">
+  <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+  <g>
+    <title>background</title>
+    <rect x="-1" y="-1" width="1026" height="332" id="canvas_background" fill="none"/>
+    <g id="canvasGrid" display="none">
+      <rect id="svg_3" width="100%" height="100%" x="0" y="0" stroke-width="0" fill="url(#gridpattern)"/>
+    </g>
+  </g>
+  <g>
+    <title>Layer 1</title>
+    <text fill="#1c2546" stroke-width="0" x="74.560825" y="54.778353" id="svg_1" font-size="24" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" transform="rotate(-0.19571544229984283 607.4126586914109,79.53726959230403) matrix(3.5931052972787256,0,0,4.131724574087002,-48.52566895994596,-112.65248000645451) " stroke="#000">中国家居产业智联网</text>
+    <text fill="#5074ee" stroke-width="0" stroke-opacity="null" x="32.800935" y="231.453125" id="svg_2" font-size="24" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" transform="matrix(5.023474752792936,0,0,5.865262143456618,-127.59106641644667,-1079.7253957674611) " stroke="#000">南康家具产业APS</text>
+    <text fill="#1c2546" stroke-width="0" stroke-opacity="null" x="39.52319" y="73.685044" id="svg_4" font-size="24" font-family="Arvo, sans-serif" text-anchor="start" xml:space="preserve" transform="matrix(1.2711036172161125,0,0,1.428157267294373,-4.675613177213563,6.446034590771822) " stroke="#000" font-weight="normal">Singularity</text>
+    <text fill="#1c2546" stroke-width="0" stroke-opacity="null" x="41.371061" y="47.282279" id="svg_5" font-size="24" font-family="Arvo, sans-serif" text-anchor="start" xml:space="preserve" transform="matrix(2.4959533188415435,0,0,1.6743781335982248,-60.16886771727059,-7.439097811789338) " stroke="#000" font-weight="bold">DEEP</text>
+    <line fill="none" x1="38.5" y1="145" x2="989.5" y2="144.453125" id="svg_6" stroke-linejoin="null" stroke-linecap="null" stroke-width="5" stroke="#cb131f"/>
+  </g>
+</svg>

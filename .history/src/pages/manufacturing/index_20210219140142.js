@@ -1,0 +1,1 @@
+export default () => <div>生产制造</div>

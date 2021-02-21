@@ -1,0 +1,1 @@
+export default () => <div>工作班次</div>

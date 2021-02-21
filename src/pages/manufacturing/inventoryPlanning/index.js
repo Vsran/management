@@ -1,0 +1,1 @@
+export default () => <div>库存计划</div>

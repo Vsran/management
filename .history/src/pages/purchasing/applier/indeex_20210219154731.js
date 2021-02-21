@@ -1,0 +1,1 @@
+export default () => <div>供应商配置</div>

@@ -1,0 +1,1 @@
+export default () => <div>库存报告</div>

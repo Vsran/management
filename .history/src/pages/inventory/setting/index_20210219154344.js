@@ -1,0 +1,1 @@
+export default () => <div>库存配置</div>

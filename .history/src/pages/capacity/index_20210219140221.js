@@ -1,0 +1,1 @@
+export default () => <div>产能</div>

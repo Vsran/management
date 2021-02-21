@@ -1,0 +1,1 @@
+export default () => <div>资源报告</div>
